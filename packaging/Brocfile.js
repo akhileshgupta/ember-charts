@@ -16,7 +16,10 @@ var addonTree = new Funnel('addon', {
 
 // Compile templates
 var templateTree = templateCompiler('app/templates', { module: true });
-templateTree = pickFiles(templateTree, {srcDir: '/', destDir: 'ember-charts/templates'});
+templateTree = new Funnel(templateTree, {
+  srcDir: '/',
+  destDir: 'ember-charts/templates'
+});
 
 var sourceTree = mergeTrees([templateTree, addonTree], {overwrite: true});
 
